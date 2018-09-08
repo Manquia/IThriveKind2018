@@ -31,7 +31,7 @@ public class FFA_UI_Text : MonoBehaviour {
     {
         diaglouge.text = e.text;
         diaglouge.font = e.font;
-        Slider
+        slider.value = e.progress;
         return 0;
     }
 }

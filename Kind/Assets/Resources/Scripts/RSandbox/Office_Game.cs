@@ -26,8 +26,12 @@ public class Office_Game : MonoBehaviour {
         }
         StartCoroutine(PlayerKeyDown());
 
+        //update progress bar
+        UI_Text tx = new UI_Text { text = "WORK HARDER", font = office_Font, progress = (value.Length / 50f )};
+        FFMessage<UI_Text>.SendToLocal(tx);
+
         //Check for button interactable condition
-        if(value.Length > game_end_string_length)
+        if (value.Length > game_end_string_length)
         {
             end_game_button.interactable = true;
         }
@@ -72,4 +76,5 @@ public class Office_Game : MonoBehaviour {
         tx.progress = 0f;
         FFMessage<UI_Text>.SendToLocal(tx);
     }
+
 }
