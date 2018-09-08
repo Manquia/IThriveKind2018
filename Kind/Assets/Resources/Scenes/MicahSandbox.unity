@@ -507,11 +507,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114991675327461914, guid: 045a667620d6c9246b962abdb01c41b4,
-        type: 2}
-      propertyPath: UsingPM.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4087002106850936, guid: 045a667620d6c9246b962abdb01c41b4, type: 2}
       propertyPath: m_LocalPosition.x
       value: 2.73
@@ -543,61 +538,6 @@ Prefab:
     - target: {fileID: 4087002106850936, guid: 045a667620d6c9246b962abdb01c41b4, type: 2}
       propertyPath: m_RootOrder
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114991675327461914, guid: 045a667620d6c9246b962abdb01c41b4,
-        type: 2}
-      propertyPath: UseCompletePM.font
-      value: 
-      objectReference: {fileID: 12800000, guid: b993829287a41704888a0ace45ae49ac,
-        type: 3}
-    - target: {fileID: 114991675327461914, guid: 045a667620d6c9246b962abdb01c41b4,
-        type: 2}
-      propertyPath: UseCompletePM.message
-      value: Enjoy Soda in mouth with flavors beyond your wildest dreams
-      objectReference: {fileID: 0}
-    - target: {fileID: 114991675327461914, guid: 045a667620d6c9246b962abdb01c41b4,
-        type: 2}
-      propertyPath: UsingPM.Array.data[0].font
-      value: 
-      objectReference: {fileID: 12800000, guid: 8a5e9e0597bae6040bc619e249cbca85,
-        type: 3}
-    - target: {fileID: 114991675327461914, guid: 045a667620d6c9246b962abdb01c41b4,
-        type: 2}
-      propertyPath: UsingPM.Array.data[1].font
-      value: 
-      objectReference: {fileID: 12800000, guid: 8a5e9e0597bae6040bc619e249cbca85,
-        type: 3}
-    - target: {fileID: 114991675327461914, guid: 045a667620d6c9246b962abdb01c41b4,
-        type: 2}
-      propertyPath: UsingPM.Array.data[2].font
-      value: 
-      objectReference: {fileID: 12800000, guid: 8a5e9e0597bae6040bc619e249cbca85,
-        type: 3}
-    - target: {fileID: 114991675327461914, guid: 045a667620d6c9246b962abdb01c41b4,
-        type: 2}
-      propertyPath: UsingPM.Array.data[0].message
-      value: Insert Coin
-      objectReference: {fileID: 0}
-    - target: {fileID: 114991675327461914, guid: 045a667620d6c9246b962abdb01c41b4,
-        type: 2}
-      propertyPath: UsingPM.Array.data[1].message
-      value: Select Favorite Soda
-      objectReference: {fileID: 0}
-    - target: {fileID: 114991675327461914, guid: 045a667620d6c9246b962abdb01c41b4,
-        type: 2}
-      propertyPath: UsingPM.Array.data[2].message
-      value: Watch Can slowly drop
-      objectReference: {fileID: 0}
-    - target: {fileID: 114991675327461914, guid: 045a667620d6c9246b962abdb01c41b4,
-        type: 2}
-      propertyPath: UsingPM.Array.data[3].font
-      value: 
-      objectReference: {fileID: 12800000, guid: 8a5e9e0597bae6040bc619e249cbca85,
-        type: 3}
-    - target: {fileID: 114991675327461914, guid: 045a667620d6c9246b962abdb01c41b4,
-        type: 2}
-      propertyPath: UsingPM.Array.data[3].message
-      value: Grab Soda
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 045a667620d6c9246b962abdb01c41b4, type: 2}

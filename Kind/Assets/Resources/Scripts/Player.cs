@@ -22,6 +22,7 @@ class Using
     public float timeRemaining;
     public float dt;
     public PlayerMessage pm;
+    public bool valid;
 }
 class UseCompleted
 {
@@ -89,7 +90,10 @@ public class Player : MonoBehaviour {
                 u.dt = dt;
                 FFMessageBoard<Using>.Send(u, selectedObject);
 
-                UpdatePlayerMessage(u.pm, 1.0f - (u.timeRemaining / u.timeToCompelte));
+                if (u.valid)
+                {
+                    UpdatePlayerMessage(u.pm, 1.0f - (u.timeRemaining / u.timeToCompelte));
+                }
             }
             
         }

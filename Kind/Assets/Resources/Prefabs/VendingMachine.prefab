@@ -517,11 +517,17 @@ MonoBehaviour:
     font: {fileID: 12800000, guid: 8a5e9e0597bae6040bc619e249cbca85, type: 3}
     message: BUY SODA $5
   UsingPM:
-    font: {fileID: 12800000, guid: 8a5e9e0597bae6040bc619e249cbca85, type: 3}
-    message: Ahhh, that was tasty!
+  - font: {fileID: 12800000, guid: 8a5e9e0597bae6040bc619e249cbca85, type: 3}
+    message: Insert Coin
+  - font: {fileID: 12800000, guid: 8a5e9e0597bae6040bc619e249cbca85, type: 3}
+    message: Select Favorite Soda
+  - font: {fileID: 12800000, guid: 8a5e9e0597bae6040bc619e249cbca85, type: 3}
+    message: Watch Can slowly drop
+  - font: {fileID: 12800000, guid: 8a5e9e0597bae6040bc619e249cbca85, type: 3}
+    message: Grab Soda
   UseCompletePM:
-    font: {fileID: 0}
-    message: 
+    font: {fileID: 12800000, guid: b993829287a41704888a0ace45ae49ac, type: 3}
+    message: Enjoy Soda in mouth with flavors beyond your wildest dreams
   moneyCost: 5
   timeToComplete: 4
   timeRemaining: 0

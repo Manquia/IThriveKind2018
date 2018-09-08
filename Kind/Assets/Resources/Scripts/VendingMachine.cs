@@ -45,14 +45,16 @@ public class VendingMachine : MonoBehaviour {
         e.pm = pmToUse;
         e.timeRemaining = timeRemaining;
         e.timeToCompelte = timeToComplete;
-
-        if(e.timeRemaining < 0)
+        e.valid = true;
+        
+        if(e.timeRemaining <= 0.0f)
         {
             UseCompleted uc = new UseCompleted();
             uc.objectUsed = gameObject;
             uc.pm = UseCompletePM;
             FFMessageBoard<UseCompleted>.Send(uc, e.user);
 
+            e.valid = false;
             Complete();
         }
         return 0;
