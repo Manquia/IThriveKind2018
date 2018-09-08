@@ -3,14 +3,5 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Static_Var : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    static int Money = 0;
 }
