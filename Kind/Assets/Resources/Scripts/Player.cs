@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,16 +29,26 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        UpdateMovement();
+        float dt = Time.deltaTime;
+
+        UpdateMovement(dt);
+        UpdateRotation(dt);
 	}
 
-
-    public float slowCoeficient = 0.3f;
-    public float movementSpeed = 6.0f;
-
-    void UpdateMovement()
+    void UpdateRotation(float dt)
     {
-        float dt = Time.deltaTime;
+        transform.up = Vector3.Lerp(transform.up, lookDir, rotationCoeficient * dt); 
+    }
+
+    public float rotationCoeficient = 1.3f;
+    public float slowCoeficient = 3.3f;
+    public float acceleration = 20.0f;
+    public float maxSpeed = 3.5f;
+
+    public Vector3 lookDir = Vector3.up;
+
+    void UpdateMovement(float dt)
+    {
         var movementVec = Vector3.zero;
 
         if (Input.GetKey(KeyCode.W)) movementVec += Vector3.up;
@@ -47,16 +58,25 @@ public class Player : MonoBehaviour {
 
         // normalize movement
         if (movementVec != Vector3.zero)
+        {
             movementVec = movementVec.normalized;
+            lookDir = movementVec;
+        }
 
 
         if(movementVec == Vector3.zero)
         {
-            rigid.velocity = Vector2.Lerp(rigid.velocity, Vector2.zero, slowCoeficient);
+            rigid.velocity = Vector2.Lerp(rigid.velocity, Vector2.zero, slowCoeficient * dt);
         }
         else // want to move
         {
-            rigid.AddForce(movementVec * movementSpeed * dt, ForceMode2D.Impulse);
+            rigid.velocity += new Vector2(movementVec.x, movementVec.y) * acceleration * dt;
+        }
+
+        // limit speed
+        if(rigid.velocity.magnitude > maxSpeed)
+        {
+            rigid.velocity = rigid.velocity.normalized * maxSpeed;
         }
     }
 
