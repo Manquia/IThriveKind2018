@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-struct PlayerMessage
+public struct PlayerMessage
 {
     public Font font;
     public string message;
@@ -20,11 +20,12 @@ class Using
     public GameObject user;
     public float timeToCompelte;
     public float timeRemaining;
+    public float dt;
     public PlayerMessage pm;
 }
 class UseCompleted
 {
-    public GameObject user;
+    public GameObject objectUsed;
     public PlayerMessage pm;
 }
 
@@ -38,16 +39,24 @@ class QueryUsable
 public class Player : MonoBehaviour {
 
 
+    public GameObject selectedObject;
     Rigidbody2D rigid;
 
 	// Use this for initialization
 	void Start ()
     {
         rigid = GetComponent<Rigidbody2D>();
-    }
 
-	// Update is called once per frame
-	void Update ()
+        FFMessageBoard<UseCompleted>.Connect(OnUseCompleted, gameObject);
+    }
+    private void OnDestroy()
+    {
+        FFMessageBoard<UseCompleted>.Disconnect(OnUseCompleted, gameObject);
+    }
+    
+
+    // Update is called once per frame
+    void Update ()
     {
         float dt = Time.deltaTime;
 
@@ -62,32 +71,41 @@ public class Player : MonoBehaviour {
     {
         if(selectedObject != null)
         {
+            //Debug.Log("Have Selected Object");
             if(Input.GetKeyDown(KeyCode.E))
             {
+                Debug.Log("UseBegin");
+
                 UseBegin u = new UseBegin();
                 u.user = gameObject;
                 FFMessageBoard<UseBegin>.Send(u, selectedObject);
             }
             else if(Input.GetKey(KeyCode.E))
             {
+                Debug.Log("Using");
+
                 Using u = new Using();
                 u.user = gameObject;
+                u.dt = dt;
                 FFMessageBoard<Using>.Send(u, selectedObject);
 
-                UpdatePlayerMessage(u.pm);
+                UpdatePlayerMessage(u.pm, 1.0f - (u.timeRemaining / u.timeToCompelte));
             }
             
         }
+        else
+        {
+
+            //Debug.Log("Don't Have selected Object");
+        }
     }
 
-    void UpdatePlayerMessage(PlayerMessage pm)
+    void UpdatePlayerMessage(PlayerMessage pm, float progress = -1.0f)
     {
         UI_Text ut;
         ut.font = pm.font;
         ut.text = pm.message;
-
-        //Roland quick fix here. Change when needed
-        ut.progress = 0f;
+        ut.progress = progress;
 
         FFMessage<UI_Text>.SendToLocal(ut);
     }
@@ -139,6 +157,7 @@ public class Player : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("OnTrigger Entered 2d");
         QueryUsable qu = new QueryUsable();
         FFMessageBoard<QueryUsable>.Send(qu, collision.gameObject);
 
@@ -150,11 +169,21 @@ public class Player : MonoBehaviour {
         }
         else
         {
-            DeselectUsableObject(qu);
+            DeselectUsableObject(qu.gameObject);
         }
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        DeselectUsableObject(collision.gameObject);
+    }
 
-    public GameObject selectedObject;
+
+    private int OnUseCompleted(UseCompleted e)
+    {
+        Debug.Log("OnUseCompleted");
+        DeselectUsableObject(e.objectUsed);
+        return 0;
+    }
 
     void SelectUsableObject(QueryUsable qu)
     {
@@ -166,9 +195,9 @@ public class Player : MonoBehaviour {
         UpdatePlayerMessage(qu.pm);
     }
 
-    void DeselectUsableObject(QueryUsable qu)
+    void DeselectUsableObject(GameObject go)
     {
-        if(qu.gameObject == selectedObject)
+        if(go.gameObject == selectedObject)
         {
             selectedObject = null;
         }

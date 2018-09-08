@@ -3,5 +3,5 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Static_Var : MonoBehaviour {
-    static int Money = 0;
+    public static int Money = 0;
 }
