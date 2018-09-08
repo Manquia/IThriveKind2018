@@ -19,5 +19,10 @@ public class CaretPosFix : MonoBehaviour {
     public void Fix () {
         this.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.59f);
 	}
-	
+
+    public void OnValueChange(string value)
+    {
+        this.GetComponent<RectTransform>().pivot = new Vector2(0.5f, .5f);
+    }
+
 }
