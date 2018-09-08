@@ -182,6 +182,8 @@ public class Player : MonoBehaviour {
     {
         Debug.Log("OnUseCompleted");
         DeselectUsableObject(e.objectUsed);
+
+        UpdatePlayerMessage(e.pm);
         return 0;
     }
 
