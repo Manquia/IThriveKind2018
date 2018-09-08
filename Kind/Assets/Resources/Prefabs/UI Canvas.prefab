@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 224957048608131334}
   - component: {fileID: 222221023911555138}
   - component: {fileID: 114344354797621202}
+  - component: {fileID: 114613345582433530}
   m_Layer: 5
   m_Name: Money
   m_TagString: Untagged
@@ -519,6 +520,18 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114613345582433530
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1857170155982100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11c41c67519d5d440b2e5e085b4538e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UI: {fileID: 114344354797621202}
 --- !u!114 &114853738534937228
 MonoBehaviour:
   m_ObjectHideFlags: 1
