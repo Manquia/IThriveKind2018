@@ -28,7 +28,6 @@ public class VendingMachine : MonoBehaviour {
         FFMessageBoard<QueryUsable>.Disconnect(OnQueryUsable, gameObject);
     }
 
-
     private int OnUsing(Using e)
     {
         timeRemaining -= e.dt;
@@ -36,7 +35,7 @@ public class VendingMachine : MonoBehaviour {
 
         float mu = 1.0f - (timeRemaining / timeToComplete);
         float muStep = 1.0f / UsingPM.Length;
-        Debug.Log("mu:  " + mu);
+        //Debug.Log("mu:  " + mu);
 
         int sampleIndex = (int)((mu + (0.5f * muStep)) * ((float)UsingPM.Length - 1.0f));
         sampleIndex = Math.Min(sampleIndex, UsingPM.Length - 1);
@@ -64,7 +63,7 @@ public class VendingMachine : MonoBehaviour {
     void Complete()
     {
         Static_Var.Money -= moneyCost;
-        Debug.Log("Money: " + Static_Var.Money);
+        //Debug.Log("Money: " + Static_Var.Money);
     }
 
     private int OnUseBegin(UseBegin e)
@@ -84,7 +83,11 @@ public class VendingMachine : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update ()
+    {
+
 		
 	}
+    
+
 }
