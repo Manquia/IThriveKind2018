@@ -8,6 +8,9 @@ struct UI_Text
 {
     public string text;
     public Font font;
+
+    //0 is nothing, 1 is full, negative don't display 
+    public float progress;
 }
 
 public class FFA_UI_Text : MonoBehaviour {
