@@ -15,6 +15,7 @@ struct UI_Text
 
 public class FFA_UI_Text : MonoBehaviour {
     public Text diaglouge;
+    public Slider slider;
 
     private void Start()
     {
@@ -30,6 +31,7 @@ public class FFA_UI_Text : MonoBehaviour {
     {
         diaglouge.text = e.text;
         diaglouge.font = e.font;
+        Slider
         return 0;
     }
 }

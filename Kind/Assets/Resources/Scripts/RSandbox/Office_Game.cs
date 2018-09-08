@@ -69,6 +69,7 @@ public class Office_Game : MonoBehaviour {
         UI_Text tx;
         tx.text = ui_instruction;
         tx.font = office_Font;
+        tx.progress = 0f;
         FFMessage<UI_Text>.SendToLocal(tx);
     }
 }

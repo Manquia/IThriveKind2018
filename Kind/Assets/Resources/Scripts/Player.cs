@@ -86,6 +86,9 @@ public class Player : MonoBehaviour {
         ut.font = pm.font;
         ut.text = pm.message;
 
+        //Roland quick fix here. Change when needed
+        ut.progress = 0f;
+
         FFMessage<UI_Text>.SendToLocal(ut);
     }
 
