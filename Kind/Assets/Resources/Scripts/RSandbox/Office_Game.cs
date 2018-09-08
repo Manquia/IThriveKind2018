@@ -9,7 +9,9 @@ public class Office_Game : MonoBehaviour {
 
     public GameObject screen_transition_object;
     public AudioSource audio_player;
-
+    [Space(5)]
+    public Font office_Font;
+    public string ui_instruction;
     private IEnumerator enumerator;
 
     private WaitForSeconds wait = new WaitForSeconds(0.5f);
@@ -56,5 +58,13 @@ public class Office_Game : MonoBehaviour {
         yield return wait;
         StopSound();
         enumerator = null;
+    }
+
+    private void Start()
+    {
+        UI_Text tx;
+        tx.text = ui_instruction;
+        tx.font = office_Font;
+        FFMessage<UI_Text>.SendToLocal(tx);
     }
 }
