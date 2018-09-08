@@ -31,6 +31,10 @@ public class Office_Game : MonoBehaviour {
         {
             end_game_button.interactable = true;
         }
+        else
+        {
+            end_game_button.interactable = false;
+        }
     }
 
     public void OnButtonPressed()
