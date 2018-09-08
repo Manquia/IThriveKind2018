@@ -7,9 +7,11 @@ using UnityEngine.UI;
 struct UI_Text
 {
     public string text;
+    public Font font;
 }
+
 public class FFA_UI_Text : MonoBehaviour {
-    public Text UI_text;
+    public Text diaglouge;
 
     private void Start()
     {
@@ -23,7 +25,8 @@ public class FFA_UI_Text : MonoBehaviour {
 
     private int ChangeText(UI_Text e)
     {
-        UI_text.text = e.text;
+        diaglouge.text = e.text;
+        diaglouge.font = e.font;
         return 0;
     }
 }
