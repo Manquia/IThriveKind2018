@@ -3,16 +3,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-struct Use
+[System.Serializable]
+struct PlayerMessage
+{
+    public Font font;
+    public string message;
+}
+
+// doesn't have a message becuase it would be immediatly replaced by using's message
+class UseBegin
 {
     public GameObject user;
+}
+class Using
+{
+    public GameObject user;
+    public float timeToCompelte;
+    public float timeRemaining;
+    public PlayerMessage pm;
+}
+class UseCompleted
+{
+    public GameObject user;
+    public PlayerMessage pm;
 }
 
 class QueryUsable
 {
     public bool usableObject = false;
-    public string message;
     public GameObject gameObject;
+    public PlayerMessage pm;
 }
 
 public class Player : MonoBehaviour {
@@ -33,7 +53,41 @@ public class Player : MonoBehaviour {
 
         UpdateMovement(dt);
         UpdateRotation(dt);
+        UpdateUse(dt);
 	}
+
+    public Font PlayerUseFont;
+
+    private void UpdateUse(float dt)
+    {
+        if(selectedObject != null)
+        {
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                UseBegin u = new UseBegin();
+                u.user = gameObject;
+                FFMessageBoard<UseBegin>.Send(u, selectedObject);
+            }
+            else if(Input.GetKey(KeyCode.E))
+            {
+                Using u = new Using();
+                u.user = gameObject;
+                FFMessageBoard<Using>.Send(u, selectedObject);
+
+                UpdatePlayerMessage(u.pm);
+            }
+            
+        }
+    }
+
+    void UpdatePlayerMessage(PlayerMessage pm)
+    {
+        UI_Text ut;
+        ut.font = pm.font;
+        ut.text = pm.message;
+
+        FFMessage<UI_Text>.SendToLocal(ut);
+    }
 
     void UpdateRotation(float dt)
     {
@@ -106,7 +160,7 @@ public class Player : MonoBehaviour {
 
     void DisplayUsableObjectMessage(QueryUsable qu)
     {
-        // ADD send to changeTest event
+        UpdatePlayerMessage(qu.pm);
     }
 
     void DeselectUsableObject(QueryUsable qu)
@@ -121,11 +175,10 @@ public class Player : MonoBehaviour {
     {
         if(selectedObject != null)
         {
-            Use u;
+            UseBegin u = new UseBegin();
             u.user = gameObject;
-            FFMessageBoard<Use>.Send(u, selectedObject);
+            FFMessageBoard<UseBegin>.Send(u, selectedObject);
         }
-        
     }
 
 }
