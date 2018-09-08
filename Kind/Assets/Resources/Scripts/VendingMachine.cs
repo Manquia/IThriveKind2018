@@ -36,8 +36,9 @@ public class VendingMachine : MonoBehaviour {
 
         float mu = 1.0f - (timeRemaining / timeToComplete);
         float muStep = 1.0f / UsingPM.Length;
+        Debug.Log("mu:  " + mu);
 
-        int sampleIndex = (int)((mu + (0.5f * muStep)) * (float)UsingPM.Length - 1.0f);
+        int sampleIndex = (int)((mu + (0.5f * muStep)) * ((float)UsingPM.Length - 1.0f));
         sampleIndex = Math.Min(sampleIndex, UsingPM.Length - 1);
 
         var pmToUse = UsingPM[sampleIndex];
