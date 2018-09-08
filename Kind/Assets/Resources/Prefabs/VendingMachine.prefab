@@ -270,7 +270,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1087258988716348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.73, y: 2.1, z: -0.98186}
+  m_LocalPosition: {x: -0.33801055, y: 2.979793, z: -0.98186}
   m_LocalScale: {x: 0.6728523, y: 0.6728523, z: 0.6728523}
   m_Children:
   - {fileID: 4277770782982116}
@@ -529,7 +529,7 @@ MonoBehaviour:
     font: {fileID: 12800000, guid: b993829287a41704888a0ace45ae49ac, type: 3}
     message: Enjoy Soda in mouth with flavors beyond your wildest dreams
   moneyCost: 5
-  timeToComplete: 4
+  timeToComplete: 5.5
   timeRemaining: 0
 --- !u!212 &212024558588459214
 SpriteRenderer:
