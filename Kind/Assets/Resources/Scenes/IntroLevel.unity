@@ -195,13 +195,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 659567077}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c7cd43ea4936bf4497b2d250477d609, type: 3}
+  m_Script: {fileID: 11500000, guid: ba4a98ed510f75844a63af1c7e4e4aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OpenFadeTime: 1.4
-  PreFadeTime: 0.1
-  FadeTime: 0.9
-  PostFadeTime: 0.1
+  OpenFadeTime: 1
+  PreFadeTime: 1
+  FadeTime: 0.1
+  PostFadeTime: 1
   LevelToLoad: Level1
   trigger: 0
 --- !u!1 &702632119
@@ -421,7 +421,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -445,7 +445,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!4 &1436142412
 Transform:
   m_ObjectHideFlags: 0
