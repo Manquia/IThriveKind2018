@@ -17,7 +17,7 @@ public class FFA_UI_Text : MonoBehaviour {
     public Text diaglouge;
     public Slider slider;
 
-    private void Start()
+    private void Awake()
     {
         FFMessage<UI_Text>.Connect(ChangeText);
     }

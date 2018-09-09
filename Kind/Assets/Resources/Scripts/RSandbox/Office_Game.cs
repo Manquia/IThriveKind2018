@@ -60,7 +60,8 @@ public class Office_Game : MonoBehaviour {
     public void OnButtonPressed()
     {
         Static_Var.Money += 50;
-        FFMessage<TriggerFade>.SendToLocal(new TriggerFade());
+        string level = "Level" + Static_Var.currentLevel.ToString();
+        FFMessage<TriggerFade>.SendToLocal(new TriggerFade(level));
     }
 
     public void PlaySound()
@@ -85,31 +86,39 @@ public class Office_Game : MonoBehaviour {
         enumerator = null;
     }
 
+    string [] lateWarning = {"You're late. Get out of my sight. Better not be late again.",
+        "Why are you late again? Do you want to get fired?",
+        "This is your last chance. Stop being late." }; 
+
     private void Start()
     {
         Static_Var.RefreshUI();
-        if (PlayerPrefs.GetInt("Time", -2) == 0)
+        if (PlayerPrefs.GetInt("IsLate", 0) == 1)
         {
-            string lateWarning;
-            
-
             UI_Text tx;
-            tx.text = "You're late. Get out of my sight. Better not be late again.";
+            tx.text = lateWarning[0];
             tx.font = office_Font;
             tx.progress = 0f;
             FFMessage<UI_Text>.SendToLocal(tx);
-            FFMessage<TriggerFade>.SendToLocal(new TriggerFade());
+            StartCoroutine(waitAndExit());
         }
         else
         {
             UI_Text tx;
             tx.text = ui_instruction;
             tx.font = office_Font;
-            tx.progress = 0f;
+            tx.progress = 1f;
             FFMessage<UI_Text>.SendToLocal(tx);
         }
     }
 
+    IEnumerator waitAndExit()
+    {
+        yield return new WaitForSeconds(5f);
+        string level = "Level" + Static_Var.currentLevel.ToString();
+        FFMessage<TriggerFade>.SendToLocal(new TriggerFade(level));
+        PlayerPrefs.SetInt("IsLate", 0);
+    }
     public const string workString = "using UnityEngine; \n" +
     #region WORK_STRING
 "using System.Collections;\n" +

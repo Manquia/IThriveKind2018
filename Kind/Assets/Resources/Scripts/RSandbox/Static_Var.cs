@@ -34,6 +34,8 @@ public class Static_Var : MonoBehaviour {
         }
     }
 
+    public static int currentLevel = 1;
+
     public static void RefreshUI()
     {
         MoneyStruct msg;
@@ -42,5 +44,5 @@ public class Static_Var : MonoBehaviour {
         FFMessage<MoneyStruct>.SendToLocal(msg);
     }
 
-    private static int money = 100;
+    private static int money = 200;
 }

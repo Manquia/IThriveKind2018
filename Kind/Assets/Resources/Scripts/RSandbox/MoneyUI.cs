@@ -19,9 +19,8 @@ public class MoneyUI : MonoBehaviour {
         FFMessage<MoneyStruct>.Connect(ChangeText);
     }
 	
-	// Update is called once per frame
-	void Update () {
-        FFMessage<MoneyStruct>.Connect(ChangeText);
+	void OnDestroy () {
+        FFMessage<MoneyStruct>.Disconnect(ChangeText);
     }
 
     private int ChangeText(MoneyStruct e)

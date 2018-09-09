@@ -5,6 +5,11 @@ using System;
 
 struct TriggerFade
 {
+    public string level_name;
+    public TriggerFade(string n)
+    {
+        level_name = n;
+    }
 }
 
 // This is the controller of the splace screen object
@@ -63,6 +68,7 @@ public class SceneTransition : FFComponent {
 
     private int OnTriggerFade(TriggerFade e)
     {
+        LevelToLoad = e.level_name;
         FadeToNextLevel();
         return 0;
     }

@@ -5,6 +5,10 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Timer_behavior : FFComponent {
+
+    public delegate void Timer_Event(string timerName);
+    public static event Timer_Event OnTimerEnd;
+
     private const int clockone = 0;
     private const int clocktwo = 1;
     WaitForSeconds oneSecond;
@@ -85,14 +89,10 @@ public class Timer_behavior : FFComponent {
     {
         timertext.text = over_string;
         timertext.color = Color.red;
-
+        OnTimerEnd(this.gameObject.name);
         childtext.gameObject.SetActive(false);
-
-        if(this.gameObject.name.Contains("World"))
-        {
-
-        }
     }
+
 
     string floatToString(int flt)
     {

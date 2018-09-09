@@ -18,13 +18,23 @@ public class Office : MonoBehaviour
         FFMessageBoard<UseBegin>.Connect(OnUseBegin, gameObject);
         FFMessageBoard<Using>.Connect(OnUsing, gameObject);
         FFMessageBoard<QueryUsable>.Connect(OnQueryUsable, gameObject);
+
+        Timer_behavior.OnTimerEnd += Timer_behavior_OnTimerEnd;
     }
+
+
 
     private void OnDestroy()
     {
         FFMessageBoard<UseBegin>.Disconnect(OnUseBegin, gameObject);
         FFMessageBoard<Using>.Disconnect(OnUsing, gameObject);
         FFMessageBoard<QueryUsable>.Disconnect(OnQueryUsable, gameObject);
+
+        Timer_behavior.OnTimerEnd -= Timer_behavior_OnTimerEnd;
+    }
+    private void Timer_behavior_OnTimerEnd(string timerName)
+    {
+        PlayerPrefs.SetInt("IsLate", 1);
     }
 
     private int OnUsing(Using e)
@@ -61,7 +71,7 @@ public class Office : MonoBehaviour
 
     void Complete()
     {
-        FFMessage<TriggerFade>.SendToLocal(new TriggerFade());
+        FFMessage<TriggerFade>.SendToLocal(new TriggerFade("Office"));
     }
 
     private int OnUseBegin(UseBegin e)
