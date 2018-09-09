@@ -37,9 +37,8 @@ class QueryUsable
     public PlayerMessage pm;
 }
 
-public class Player : MonoBehaviour {
-
-
+public class Player : MonoBehaviour
+{
     public GameObject selectedObject;
     Rigidbody2D rigid;
 
@@ -57,9 +56,9 @@ public class Player : MonoBehaviour {
     
 
     // Update is called once per frame
-    void Update ()
+    void FixedUpdate ()
     {
-        float dt = Time.deltaTime;
+        float dt = Time.fixedDeltaTime;
 
         UpdateMovement(dt);
         UpdateRotation(dt);
@@ -116,10 +115,12 @@ public class Player : MonoBehaviour {
 
     void UpdateRotation(float dt)
     {
-        transform.up = Vector3.Lerp(transform.up, lookDir, rotationCoeficient * dt); 
+        float angleBetween = Vector3.Angle(transform.up, lookDir);
+        float direction = Vector3.Dot(transform.right, lookDir) > 0.0f ? -1.0f : 1.0f;
+        var rot = Quaternion.AngleAxis(rotationSpeed * angleBetween * dt * direction, Vector3.forward);
+        transform.localRotation = transform.localRotation * rot;
     }
-
-    public float rotationCoeficient = 1.3f;
+    public float rotationSpeed = 600.0f;
     public float slowCoeficient = 3.3f;
     public float acceleration = 20.0f;
     public float maxSpeed = 3.5f;
