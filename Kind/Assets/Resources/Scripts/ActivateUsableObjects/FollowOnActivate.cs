@@ -62,7 +62,7 @@ public class FollowOnActivate : MonoBehaviour
 
                 if ((int)(distance / path.PathLength) > loopCounter)
                 {
-                    loopCounter = (int)(distance % path.PathLength);
+                    loopCounter = (int)(distance / path.PathLength);
                     PathFollowerCompletedLoopEvent e;
                     e.distTraveled = path.PathLength;
                     FFMessageBoard<PathFollowerCompletedLoopEvent>.Send(e, gameObject);
