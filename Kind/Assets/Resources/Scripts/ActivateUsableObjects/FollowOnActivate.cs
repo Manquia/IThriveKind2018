@@ -38,7 +38,7 @@ public class FollowOnActivate : MonoBehaviour
         {
             distance += Time.fixedDeltaTime * speed;
 
-            var path = PathToFollow;
+            var path = PathToFollow.GetComponent<FFPath>();
 
             if (distance > path.PathLength)
             {
@@ -62,10 +62,9 @@ public class FollowOnActivate : MonoBehaviour
 
                 if ((int)(distance / path.PathLength) > loopCounter)
                 {
-                    loopCounter = (int)(distance / path.PathLength);
+                    loopCounter = (int)(distance % path.PathLength);
                     PathFollowerCompletedLoopEvent e;
                     e.distTraveled = path.PathLength;
-                    e.obj = gameObject;
                     FFMessageBoard<PathFollowerCompletedLoopEvent>.Send(e, gameObject);
                 }
             }

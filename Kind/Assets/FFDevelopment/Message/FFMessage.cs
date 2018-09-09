@@ -248,5 +248,4 @@ public class FFMessage<EventType> : FFPrivate.BaseMessage
         info.visitorCount = visitorCountLocal;
         return info;
     }
-
 }

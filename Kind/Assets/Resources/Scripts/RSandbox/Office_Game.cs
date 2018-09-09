@@ -105,8 +105,6 @@ public class Office_Game : MonoBehaviour {
         int lateValue = PlayerPrefs.GetInt("IsLate", 0);
         if (lateValue == 1)
         {
-            PlayerPrefs.SetInt("IsLate", 0);
-
             int warningText_arrayindex = Static_Var.lateTimes;
             Static_Var.lateTimes = (Static_Var.lateTimes + 1) % 3;
 
