@@ -40,4 +40,9 @@ public class FFComponent : MonoBehaviour
         get { return new FFRef<Color>(() => GetComponent<SpriteRenderer>().color, (v) => { GetComponent<SpriteRenderer>().color = v; }); }
     }
 
+    public FFRef<Color> ffUIGraphicColor
+    {
+        get { return new FFRef<Color>(() => GetComponent<UnityEngine.UI.Graphic>().color, (v) => { GetComponent<UnityEngine.UI.Graphic>().color = v; }); }
+    }
+
 }

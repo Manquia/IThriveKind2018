@@ -26,7 +26,7 @@ public class MoneyUI : MonoBehaviour {
 
     private int ChangeText(MoneyStruct e)
     {
-        UI.color = e    .color;
+        UI.color = e.color;
         UI.text = e.updatedString;
         return 0;
     }

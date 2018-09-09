@@ -87,13 +87,27 @@ public class Office_Game : MonoBehaviour {
 
     private void Start()
     {
-        UI_Text tx;
-        tx.text = ui_instruction;
-        tx.font = office_Font;
-        tx.progress = 0f;
-        FFMessage<UI_Text>.SendToLocal(tx);
-
         Static_Var.RefreshUI();
+        if (PlayerPrefs.GetInt("Time", -2) == 0)
+        {
+            string lateWarning;
+            
+
+            UI_Text tx;
+            tx.text = "You're late. Get out of my sight. Better not be late again.";
+            tx.font = office_Font;
+            tx.progress = 0f;
+            FFMessage<UI_Text>.SendToLocal(tx);
+            FFMessage<TriggerFade>.SendToLocal(new TriggerFade());
+        }
+        else
+        {
+            UI_Text tx;
+            tx.text = ui_instruction;
+            tx.font = office_Font;
+            tx.progress = 0f;
+            FFMessage<UI_Text>.SendToLocal(tx);
+        }
     }
 
     public const string workString = "using UnityEngine; \n" +
