@@ -28,9 +28,9 @@ public class UsableObject : MonoBehaviour
 
     public int moneyCost;
     public float timeToComplete = 0;
+    public float timeRemaining = 0;
     public bool oneTimeUse = true;
 
-    float timeRemaining = 0;
     int timesUsed = 0;
 
     // Use this for initialization
@@ -100,8 +100,7 @@ public class UsableObject : MonoBehaviour
 
         foreach(var eff in effects)
         {
-            if(BlackBoard.ContainsKey(eff) == false)
-                BlackBoard.Add(eff, true);
+            BlackBoard.Add(eff, true);
         }
 
         ++timesUsed;

@@ -14,12 +14,12 @@ public class CameraController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate ()
+	void Update ()
     {
         if (player == null)
             return;
 
-        float dt = Time.fixedDeltaTime;
+        float dt = Time.deltaTime;
 
         transform.position = Vector3.Lerp(new Vector3(
             transform.position.x,

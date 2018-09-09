@@ -29,9 +29,8 @@ using System;
 // if you do this you will need to call SetupPointData
 // yourself
 ///////////////////////////////////////////////////////
-#if UNITY_EDITOR
+
 [ExecuteInEditMode]
-#endif
 public class FFPath : MonoBehaviour
 {
 #region DebugConstants
@@ -104,13 +103,12 @@ public class FFPath : MonoBehaviour
         DestroyModifiablePoints();
 #endif // UNITY_EDTIOR
     }
-    #endregion Destroy
+#endregion Destroy
 
-    #region DebugDraw
+#region DebugDraw
 
 #if UNITY_EDITOR
 
-    public bool inEditorDrawGizmos = true;
     bool inEditorModifyAndDraw = false; // to see if we changed modify
     void Start()
     {
@@ -158,21 +156,15 @@ public class FFPath : MonoBehaviour
 
     void OnDrawGizmos() // unselected
     {
-        if (inEditorDrawGizmos)
-        {
-            Update();
-            SetupPointData();
-            DrawDebugLinesGizmo(DebugLineColorUnselected, DebugLineLengthUnselected);
-        }
+        Update();
+        SetupPointData();
+        DrawDebugLinesGizmo(DebugLineColorUnselected, DebugLineLengthUnselected);
     }
     void OnDrawGizmosSelected()
     {
-        if (inEditorDrawGizmos)
-        {
-            Update();
-            SetupPointData();
-            DrawDebugLinesGizmo(DebugLineColorSelected, DebugLineLengthSelected);
-        }
+        Update();
+        SetupPointData();
+        DrawDebugLinesGizmo(DebugLineColorSelected, DebugLineLengthSelected);
     }
     
 
@@ -1179,7 +1171,7 @@ public class FFPath : MonoBehaviour
         //PrintData(dist, mu, n1, n2, p1, p2);
 
         //Catmull-Rom Splines
-#region Catmull-Rom Splines
+        #region Catmull-Rom Splines
 
         FFVector3 a0, a1, a2, a3;
         float mu2;
