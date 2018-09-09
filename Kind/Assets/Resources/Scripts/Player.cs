@@ -75,7 +75,7 @@ public class Player : MonoBehaviour {
             //Debug.Log("Have Selected Object");
             if(Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("UseBegin");
+                //Debug.Log("UseBegin");
 
                 UseBegin u = new UseBegin();
                 u.user = gameObject;
@@ -83,7 +83,7 @@ public class Player : MonoBehaviour {
             }
             else if(Input.GetKey(KeyCode.E))
             {
-                Debug.Log("Using");
+                //Debug.Log("Using");
 
                 Using u = new Using();
                 u.user = gameObject;

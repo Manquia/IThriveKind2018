@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct ActivateUsableObject
+{
+
+}
 public class UsableObject : MonoBehaviour
 {
     static Dictionary<string, bool> BlackBoard = new Dictionary<string, bool>();
@@ -16,9 +20,12 @@ public class UsableObject : MonoBehaviour
     public int moneyCost;
     public float timeToComplete = 0;
     public float timeRemaining = 0;
+    public bool oneTimeUse = true;
 
-	// Use this for initialization
-	void Start ()
+    int timesUsed = 0;
+
+    // Use this for initialization
+    void Start ()
     {
         FFMessageBoard<UseBegin>.Connect(OnUseBegin, gameObject);
         FFMessageBoard<Using>.Connect(OnUsing, gameObject);
@@ -39,6 +46,7 @@ public class UsableObject : MonoBehaviour
             e.valid = false;
             return 0;
         }
+
 
         timeRemaining -= e.dt;
         timeRemaining = Math.Max(timeRemaining, 0.0f);
@@ -73,6 +81,17 @@ public class UsableObject : MonoBehaviour
     void Complete()
     {
         Static_Var.Money -= moneyCost;
+        Static_Var.Money = Mathf.Min(0, Static_Var.Money);
+
+        ActivateUsableObject auo;
+        FFMessageBoard<ActivateUsableObject>.Send(auo, gameObject);
+
+        foreach(var eff in effects)
+        {
+            BlackBoard.Add(eff, true);
+        }
+
+        ++timesUsed;
         //Debug.Log("Money: " + Static_Var.Money);
     }
 
@@ -85,16 +104,19 @@ public class UsableObject : MonoBehaviour
 
     bool Usable()
     {
-        bool canUse = true;
         foreach (var cond in conditions)
         {
             if (!BlackBoard.ContainsKey(cond) || BlackBoard[cond] == false)
-            {
-                canUse = false;
-                break;
-            }
+                return false;
         }
-        return canUse;
+
+        if (oneTimeUse && timesUsed > 0)
+            return false;
+        
+        if (Static_Var.Money < moneyCost)
+            return false;
+
+        return true;
     }
 
     private int OnQueryUsable(QueryUsable e)
