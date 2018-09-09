@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdat ()
+	void FixedUpdate ()
     {
         if (player == null)
             return;
