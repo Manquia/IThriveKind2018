@@ -80,8 +80,10 @@ public class UsableObject : MonoBehaviour
 
     void Complete()
     {
+        Debug.Log("Completed: " + gameObject.name + " Usable Object");
+
         Static_Var.Money -= moneyCost;
-        Static_Var.Money = Mathf.Min(0, Static_Var.Money);
+        Static_Var.Money = Mathf.Max(0, Static_Var.Money);
 
         ActivateUsableObject auo;
         FFMessageBoard<ActivateUsableObject>.Send(auo, gameObject);
