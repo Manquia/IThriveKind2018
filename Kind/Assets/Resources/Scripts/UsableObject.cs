@@ -3,11 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UsableObject : MonoBehaviour {
-    
+public class UsableObject : MonoBehaviour
+{
+    static Dictionary<string, bool> BlackBoard = new Dictionary<string, bool>();
+
+    public string[] conditions;
     public PlayerMessage QueryPM;
     public PlayerMessage []inProgressPMs;
     public PlayerMessage UseCompletePM;
+    public string[] effects;
 
     public int moneyCost;
     public float timeToComplete = 0;
@@ -30,6 +34,12 @@ public class UsableObject : MonoBehaviour {
 
     private int OnUsing(Using e)
     {
+        if (Usable() == false)
+        {
+            e.valid = false;
+            return 0;
+        }
+
         timeRemaining -= e.dt;
         timeRemaining = Math.Max(timeRemaining, 0.0f);
 
@@ -69,7 +79,22 @@ public class UsableObject : MonoBehaviour {
     private int OnUseBegin(UseBegin e)
     {
         timeRemaining = timeToComplete;
+
         return 0;
+    }
+
+    bool Usable()
+    {
+        bool canUse = true;
+        foreach (var cond in conditions)
+        {
+            if (!BlackBoard.ContainsKey(cond) || BlackBoard[cond] == false)
+            {
+                canUse = false;
+                break;
+            }
+        }
+        return canUse;
     }
 
     private int OnQueryUsable(QueryUsable e)
