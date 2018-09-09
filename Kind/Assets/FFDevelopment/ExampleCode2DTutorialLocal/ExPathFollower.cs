@@ -32,11 +32,16 @@ public class ExPathFollower : FFComponent {
         var path = PathToFollow.GetComponent<FFPath>();
         if(path)
         {
+            var PrevPos = path.PointAlongPath(distance - 0.01f);
             var position = path.PointAlongPath(distance);
+            var vecForward = Vector3.Normalize(position - PrevPos);
+
             transform.position = position;
-            if((int)(distance % path.PathLength) > loopCounter)
+            transform.up = vecForward;
+
+            if ((int)(distance / path.PathLength) > loopCounter)
             {
-                loopCounter = (int)(distance % path.PathLength);
+                loopCounter = (int)(distance / path.PathLength);
                 PathFollowerCompletedLoopEvent e;
                 e.distTraveled = path.PathLength;
                 e.obj = gameObject;

@@ -107,7 +107,7 @@ public class Office_Game : MonoBehaviour {
         {
             int warningText_arrayindex = Static_Var.lateTimes;
             Static_Var.lateTimes = (Static_Var.lateTimes + 1) % 3;
-
+            PlayerPrefs.SetInt("IsLate", 0);
             tx.text = lateWarning[0];
             tx.font = office_Font;
             tx.progress = 0f;
