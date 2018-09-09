@@ -11,7 +11,7 @@ public class PerlinFog_Controller : MonoBehaviour
 {
     UB.D2FogsPE fog;
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         fog = GetComponent<UB.D2FogsPE>();
         FFMessage<FogMsg>.Connect(IncrementFogDensity);
