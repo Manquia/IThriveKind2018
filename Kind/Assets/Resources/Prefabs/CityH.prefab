@@ -1572,7 +1572,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1526435541703744}
   m_BodyType: 2
-  m_Simulated: 0
+  m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 15
@@ -1974,14 +1974,14 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
-      time: 0.24
-      value: 1
+      time: 0.1880133
+      value: 0.995491
       inSlope: -4.168333
       outSlope: -4.168333
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.51057863
-      value: 0.40533447
+      time: 0.34544802
+      value: 0.2971344
       inSlope: -1.4303806
       outSlope: -1.4303806
       tangentMode: 0
