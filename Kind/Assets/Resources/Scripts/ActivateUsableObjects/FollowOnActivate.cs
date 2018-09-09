@@ -13,6 +13,7 @@ public class FollowOnActivate : MonoBehaviour
 
     public FFPath PathToFollow;
     public bool moving = false;
+    public int TimesToLoop = 1;
     
     // Use this for initialization
     void Start()
@@ -38,16 +39,33 @@ public class FollowOnActivate : MonoBehaviour
             distance += Time.fixedDeltaTime * speed;
 
             var path = PathToFollow.GetComponent<FFPath>();
+
+            if (distance > path.PathLength)
+            {
+                distance -= path.PathLength;
+                ++loopCounter;
+                if(loopCounter >= TimesToLoop)
+                {
+                    loopCounter = 0;
+                    moving = false;
+                }
+            }
+
             if (path)
             {
+                var PrevPos = path.PointAlongPath(distance - 0.01f);
                 var position = path.PointAlongPath(distance);
+                var vecForward = Vector3.Normalize(position - PrevPos);
+
                 transform.position = position;
-                if ((int)(distance % path.PathLength) > loopCounter)
+                transform.up = vecForward;
+
+                if ((int)(distance / path.PathLength) > loopCounter)
                 {
                     loopCounter = (int)(distance % path.PathLength);
                     PathFollowerCompletedLoopEvent e;
                     e.distTraveled = path.PathLength;
-                    FFMessage<PathFollowerCompletedLoopEvent>.SendToLocal(e);
+                    FFMessageBoard<PathFollowerCompletedLoopEvent>.Send(e, gameObject);
                 }
             }
         }

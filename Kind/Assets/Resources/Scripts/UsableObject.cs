@@ -22,8 +22,6 @@ public class UsableObject : MonoBehaviour
     public float timeRemaining = 0;
     public bool oneTimeUse = true;
 
-
-
     int timesUsed = 0;
 
     // Use this for initialization
