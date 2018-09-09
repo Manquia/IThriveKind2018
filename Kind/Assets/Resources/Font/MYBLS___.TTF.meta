@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 38a49fd29f70994409012e74e89b3add
+timeCreated: 1536458974
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: 'My Bleeding Scars '
+  fontNames:
+  - 'My Bleeding Scars '
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
