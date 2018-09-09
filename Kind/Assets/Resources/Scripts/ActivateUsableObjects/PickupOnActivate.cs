@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickupOnActivate : FFComponent {
  
-    public float pickupTime = 1.7f;
+    public float pickupTime = 1.0f;
 
     FFAction.ActionSequence pickupSeq;
     // Use this for initialization
