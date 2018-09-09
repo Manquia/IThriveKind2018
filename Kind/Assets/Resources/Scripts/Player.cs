@@ -203,7 +203,7 @@ public class Player : MonoBehaviour {
 
     void DeselectUsableObject(GameObject go)
     {
-        if(go.gameObject == selectedObject)
+        if(go == selectedObject)
         {
             selectedObject = null;
         }
