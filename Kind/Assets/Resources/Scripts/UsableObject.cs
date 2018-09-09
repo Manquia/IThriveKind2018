@@ -100,7 +100,8 @@ public class UsableObject : MonoBehaviour
 
         foreach(var eff in effects)
         {
-            BlackBoard.Add(eff, true);
+            if(BlackBoard.ContainsKey(eff) == false)
+                BlackBoard.Add(eff, true);
         }
 
         ++timesUsed;
