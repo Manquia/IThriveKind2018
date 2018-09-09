@@ -1084,8 +1084,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.09688579, g: 0.9411765, b: 0.2075171, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.875, g: 0.28952208, b: 0.28952208, a: 1}
+    m_PressedColor: {r: 0.6443145, g: 0.7352941, b: 0.07569203, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1438,6 +1438,8 @@ GameObject:
   - component: {fileID: 500837885}
   - component: {fileID: 500837884}
   - component: {fileID: 500837883}
+  - component: {fileID: 500837888}
+  - component: {fileID: 500837887}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1508,6 +1510,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &500837887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 500837882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70840a5fd08964d42bbb2ca0fa2b4a7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &500837888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 500837882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc17351fc38a45ca9bfb8e99cdcda5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Color: {r: 0, g: 0, b: 0, a: 1}
+  Size: 1
+  HorizontalSpeed: 0.2
+  VerticalSpeed: 0
+  Density: 0
+  Shader: {fileID: 0}
 --- !u!1 &530926938
 GameObject:
   m_ObjectHideFlags: 0
@@ -3665,6 +3695,12 @@ MonoBehaviour:
   office_Font: {fileID: 12800000, guid: b993829287a41704888a0ace45ae49ac, type: 3}
   ui_instruction: Finish your work.
   inputTextField: {fileID: 1889834772}
+  lateWarning:
+  - You're late. Get out of my sight. Better not be late again.
+  - Why are you late again? Do you want to get fired?
+  - This is your last chance. Stop being late.
+  MissedWorkWarning:
+  - You were absent. Do not do it again.
 --- !u!4 &1477999469
 Transform:
   m_ObjectHideFlags: 0

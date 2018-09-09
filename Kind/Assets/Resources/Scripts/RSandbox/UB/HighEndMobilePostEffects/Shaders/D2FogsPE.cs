@@ -14,7 +14,7 @@ namespace UB
         public float Size = 1f;
         public float HorizontalSpeed = 0.2f;
         public float VerticalSpeed = 0f;
-        [Range(0.0f,5)]
+        [Range(0.0f,2f)]
         public float Density = 2f;
         public Shader Shader;
         private Material _material;

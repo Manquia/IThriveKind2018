@@ -46,4 +46,7 @@ public class Static_Var : MonoBehaviour {
     }
 
     private static int money = 200;
+
+    public static float FogValue = 0;
+    public static int lateTimes = 0;
 }

@@ -86,35 +86,52 @@ public class Office_Game : MonoBehaviour {
         enumerator = null;
     }
 
-    string [] lateWarning = {"You're late. Get out of my sight. Better not be late again.",
+    //Flavour Texts
+    public string [] lateWarning = {"You're late. Get out of my sight. Better not be late again.",
         "Why are you late again? Do you want to get fired?",
-        "This is your last chance. Stop being late." }; 
+        "This is your last chance. Stop being late." };
+
+    public string[] MissedWorkWarning = { "You were absent. Do not do it again."};
 
     private void Start()
     {
+        Static_Var.currentLevel = ((Static_Var.currentLevel + 1) % 3) + 1;
+
         Static_Var.RefreshUI();
-        if (PlayerPrefs.GetInt("IsLate", 0) == 1)
+        FogMsg fog;
+        UI_Text tx;
+
+        //Player is late to the office.
+        int lateValue = PlayerPrefs.GetInt("IsLate", 0);
+        if (lateValue == 1)
         {
-            UI_Text tx;
+            int warningText_arrayindex = Static_Var.lateTimes;
+            Static_Var.lateTimes = (Static_Var.lateTimes + 1) % 3;
+
             tx.text = lateWarning[0];
             tx.font = office_Font;
             tx.progress = 0f;
-            FFMessage<UI_Text>.SendToLocal(tx);
+
+
             StartCoroutine(waitAndExit());
+            fog.FogDensity = Static_Var.FogValue + 0.5f;
+
         }
         else
         {
-            UI_Text tx;
             tx.text = ui_instruction;
             tx.font = office_Font;
             tx.progress = 0f;
-            FFMessage<UI_Text>.SendToLocal(tx);
+            fog.FogDensity = Static_Var.FogValue;
         }
+        FFMessage<UI_Text>.SendToLocal(tx);
+        FFMessage<FogMsg>.SendToLocal(fog);
     }
 
     IEnumerator waitAndExit()
     {
         yield return new WaitForSeconds(5f);
+
         string level = "Level" + Static_Var.currentLevel.ToString();
         FFMessage<TriggerFade>.SendToLocal(new TriggerFade(level));
         PlayerPrefs.SetInt("IsLate", 0);
