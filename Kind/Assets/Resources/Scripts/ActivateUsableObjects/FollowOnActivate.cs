@@ -38,7 +38,7 @@ public class FollowOnActivate : MonoBehaviour
         {
             distance += Time.fixedDeltaTime * speed;
 
-            var path = PathToFollow.GetComponent<FFPath>();
+            var path = PathToFollow;
 
             if (distance > path.PathLength)
             {

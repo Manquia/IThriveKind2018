@@ -23,7 +23,7 @@ public class ExPathFollower : FFComponent {
     {
         distance += Time.fixedDeltaTime * speed;
 
-        var path = PathToFollow.GetComponent<FFPath>();
+        var path = PathToFollow;
         
         if (path)
         {
