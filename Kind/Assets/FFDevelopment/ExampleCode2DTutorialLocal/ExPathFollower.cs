@@ -23,7 +23,8 @@ public class ExPathFollower : FFComponent {
 	void FixedUpdate ()
     {
         distance += Time.fixedDeltaTime * speed;
-        var path = PathToFollow;
+
+        var path = PathToFollow.GetComponent<FFPath>();
         
         if (path)
         {
@@ -38,8 +39,8 @@ public class ExPathFollower : FFComponent {
             {
                 loopCounter = (int)(distance / path.PathLength);
                 PathFollowerCompletedLoopEvent e;
-                e.obj = this.gameObject;
                 e.distTraveled = path.PathLength;
+                e.obj = gameObject;
                 FFMessage<PathFollowerCompletedLoopEvent>.SendToLocal(e);
             }
         }

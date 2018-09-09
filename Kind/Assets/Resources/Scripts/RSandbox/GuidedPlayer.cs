@@ -21,7 +21,7 @@ public class GuidedPlayer : MonoBehaviour {
         {
             string level = "Office";
             FFMessage<TriggerFade>.SendToLocal(new TriggerFade(level));
+            return 0;
         }
-        return 0;
     }
 }
