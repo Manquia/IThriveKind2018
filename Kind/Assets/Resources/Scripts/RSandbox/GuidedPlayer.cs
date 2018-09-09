@@ -17,8 +17,11 @@ public class GuidedPlayer : MonoBehaviour {
 
     int DoThing(PathFollowerCompletedLoopEvent p)
     {
-        string level = "Office";
-        FFMessage<TriggerFade>.SendToLocal(new TriggerFade(level));
+        if (p.obj.name.Contains("Player"))
+        {
+            string level = "Office";
+            FFMessage<TriggerFade>.SendToLocal(new TriggerFade(level));
+        }
         return 0;
     }
 }
