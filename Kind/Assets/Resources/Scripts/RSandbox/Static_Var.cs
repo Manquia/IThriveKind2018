@@ -34,7 +34,8 @@ public class Static_Var : MonoBehaviour {
         }
     }
 
-    public static int currentLevel = 1;
+    //This should be 0, 1, and 2
+    public static int currentLevel = 0;
 
     public static void RefreshUI()
     {

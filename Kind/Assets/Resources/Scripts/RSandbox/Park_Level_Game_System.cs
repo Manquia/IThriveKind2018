@@ -7,7 +7,7 @@ public class Park_Level_Game_System : MonoBehaviour {
     public int Daily_Income = 100;
 	// Use this for initialization
 	void Start () {
-        Static_Var.currentLevel = (Static_Var.currentLevel + 1) % 3;
+        Static_Var.currentLevel = ((Static_Var.currentLevel + 1) % 3) + 1;
         StartCoroutine(minusMoney());
     }
 
