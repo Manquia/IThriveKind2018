@@ -5920,6 +5920,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086c86ca6dc781e42997b2a8da7df83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  advanced:
+    LevelToLoadOnUseComplete: 
   conditions: []
   QueryPM:
     font: {fileID: 12800000, guid: 5e84e62442266844e89a26793c06cc71, type: 3}
