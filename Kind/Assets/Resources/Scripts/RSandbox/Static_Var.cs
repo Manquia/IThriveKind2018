@@ -13,10 +13,24 @@ public class Static_Var : MonoBehaviour {
         }
         set
         {
-            money = value;
+            
             MoneyStruct msg;
+
+            if(value > money)
+            {
+                msg.color = Color.green;
+            }
+            else
+            {
+                msg.color = Color.red;
+            }
+
+            money = value;
             msg.updatedString = money.ToString();
+
             FFMessage<MoneyStruct>.SendToLocal(msg);
+
+
         }
     }
 
@@ -24,6 +38,7 @@ public class Static_Var : MonoBehaviour {
     {
         MoneyStruct msg;
         msg.updatedString = money.ToString();
+        msg.color = Color.black;
         FFMessage<MoneyStruct>.SendToLocal(msg);
     }
 
