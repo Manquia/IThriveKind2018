@@ -59,7 +59,7 @@ public class Office_Game : MonoBehaviour {
 
     public void OnButtonPressed()
     {
-        Static_Var.Money += 50;
+        Static_Var.Money += 150;
         string level = "Level" + Static_Var.currentLevel.ToString();
         FFMessage<TriggerFade>.SendToLocal(new TriggerFade(level));
     }
@@ -114,7 +114,8 @@ public class Office_Game : MonoBehaviour {
 
 
             StartCoroutine(waitAndExit());
-            fog.FogDensity = Static_Var.FogValue + 0.5f;
+            Static_Var.FogValue =+ 0.3f;
+            fog.FogDensity = Static_Var.FogValue + 0.3f;
 
         }
         else
