@@ -120,7 +120,8 @@ public class Player : MonoBehaviour
         var rot = Quaternion.AngleAxis(rotationSpeed * angleBetween * dt * direction, Vector3.forward);
         transform.localRotation = transform.localRotation * rot;
     }
-    public float rotationSpeed = 600.0f;
+
+    float rotationSpeed = 6.0f;
     public float slowCoeficient = 3.3f;
     public float acceleration = 20.0f;
     public float maxSpeed = 3.5f;
