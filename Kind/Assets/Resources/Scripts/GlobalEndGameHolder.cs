@@ -9,17 +9,20 @@ struct HelpedYou
 
 public class GlobalEndGameHolder : MonoBehaviour {
 
-    
+
+    public List<GameObject> helpedPeople = new List<GameObject>();
 
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
-       // FFMessage<HelpedYou>.Connect(HelpedMe);
+        FFMessage<HelpedYou>.Connect(HelpedMeF);
     }
 
 
-    public void HelpedMe(GameObject obj)
+    private int HelpedMeF(HelpedYou obj)
     {
-        obj.transform.parent = transform;
+        helpedPeople.Add(obj.obj);
+        obj.obj.transform.parent = transform;
+        return 0;
     }
 }
