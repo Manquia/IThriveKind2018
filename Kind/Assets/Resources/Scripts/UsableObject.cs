@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public struct ActivateUsableObject
 {
@@ -9,6 +10,14 @@ public struct ActivateUsableObject
 }
 public class UsableObject : MonoBehaviour
 {
+    [System.Serializable]
+    public struct AdvancedData
+    {
+        // uses the FadeTrigger event
+        public string LevelToLoadOnUseComplete;
+    }
+    public AdvancedData advanced;
+
     static Dictionary<string, bool> BlackBoard = new Dictionary<string, bool>();
 
     public string[] conditions;
@@ -95,7 +104,14 @@ public class UsableObject : MonoBehaviour
         }
 
         ++timesUsed;
-        //Debug.Log("Money: " + Static_Var.Money);
+
+
+        if(advanced.LevelToLoadOnUseComplete != "")
+        {
+            TriggerFade tf;
+            tf.level_name = advanced.LevelToLoadOnUseComplete;
+            FFMessage<TriggerFade>.SendToLocal(tf);
+        }
     }
 
     private int OnUseBegin(UseBegin e)
