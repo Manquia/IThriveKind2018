@@ -113,6 +113,113 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &219731561
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 219731564}
+  - component: {fileID: 219731563}
+  - component: {fileID: 219731562}
+  m_Layer: 0
+  m_Name: TrashSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &219731562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 219731561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b02f96110f2548a49b3213b13facde98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectsToSpawn:
+  - {fileID: 4182531403925516, guid: aa6a2773c34f83648a91233490b81b8e, type: 2}
+  pointsToUse: {fileID: 219731563}
+  duplicateCount: 2
+--- !u!114 &219731563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 219731561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c973d364d0d7f4fbcc4ae707d5ea90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inEditorDrawGizmos: 0
+  InterpolationType: 0
+  Circuit: 0
+  DynamicPath: 0
+  SmoothBetweenPoints: 0
+  ModifyAndDraw: 0
+  points:
+  - {x: -7.67, y: 1.1299999, z: 0}
+  - {x: -1.9400003, y: 3.4199998, z: 0}
+  - {x: 8.52, y: 3.45, z: 0}
+  - {x: 6.58, y: 0.5, z: 0}
+  - {x: 6.62, y: 0.059999943, z: 0}
+  - {x: -1.5800002, y: -9.23, z: 0}
+  - {x: 8.48, y: -9.31, z: 0}
+  - {x: 11.51, y: 0.46000004, z: 0}
+  - {x: 11.43, y: -9.31, z: 0}
+  - {x: 8.32, y: -12.26, z: 0}
+  - {x: -1.5699999, y: -12.5, z: 0}
+  - {x: -4.7200003, y: -9.23, z: 0}
+  - {x: -4.6400003, y: 0.42000008, z: 0}
+  - {x: -4.76, y: -12.38, z: 0}
+  - {x: 4.29, y: 0.53999996, z: 0}
+  - {x: -1.3999999, y: 0.53999996, z: 0}
+  - {x: 4.01, y: -6.16, z: 0}
+  - {x: -4.2700005, y: 7.25, z: 0}
+  - {x: 11.16, y: 6, z: 0}
+  - {x: 13.91, y: 0.75, z: 0}
+  - {x: 13.51, y: -12.17, z: 0}
+  linearDistanceAlongPath:
+  - 0
+  - 6.170656
+  - 16.6307
+  - 20.161436
+  - 20.60325
+  - 32.99454
+  - 43.05486
+  - 53.283928
+  - 63.054256
+  - 67.34082
+  - 77.233734
+  - 81.774155
+  - 91.424484
+  - 104.225044
+  - 119.99936
+  - 125.68936
+  - 134.30087
+  - 150.06116
+  - 165.5417
+  - 171.46834
+  - 184.39453
+  - 209.40417
+--- !u!4 &219731564
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 219731561}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.9250023, y: 2.9068244, z: -0.0234375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &418725629
 Prefab:
   m_ObjectHideFlags: 0
@@ -243,6 +350,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 896f892504d85654e9c1d4dc8287f235, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1221543454 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114403846253747236, guid: 470dd8bf25471044d9ae9fa9e3bf8452,
+    type: 2}
+  m_PrefabInternal: {fileID: 1352826614}
+  m_Script: {fileID: 11500000, guid: 4671498d4a9230248b4e9d48330b7415, type: 3}
 --- !u!1001 &1322579680
 Prefab:
   m_ObjectHideFlags: 0
@@ -406,6 +519,7 @@ GameObject:
   - component: {fileID: 1932596090}
   - component: {fileID: 1932596089}
   - component: {fileID: 1932596088}
+  - component: {fileID: 1932596092}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -476,6 +590,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1932596092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1932596087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce16e769804e724ea73cc078d75df4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1221543454}
+  followCoeficient: 0.5
 --- !u!1001 &2116571565
 Prefab:
   m_ObjectHideFlags: 0

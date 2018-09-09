@@ -116,10 +116,17 @@ public class Player : MonoBehaviour {
 
     void UpdateRotation(float dt)
     {
-        transform.up = Vector3.Lerp(transform.up, lookDir, rotationCoeficient * dt); 
+        float angleBetween = Vector3.Angle(transform.up, lookDir);
+        float direction = Vector3.Dot(transform.right, lookDir) > 0.0f ? -1.0f : 1.0f;
+        var rot = Quaternion.AngleAxis(rotationSpeed * angleBetween * dt * direction, Vector3.forward);
+        transform.localRotation = transform.localRotation * rot;
+
+        //transform.up = Vector3.RotateTowards(transform.up, lookDir, Mathf.Deg2Rad * rotationSpeed * dt, 0.0f);
+
+
     }
 
-    public float rotationCoeficient = 1.3f;
+    public float rotationSpeed = 600.0f;
     public float slowCoeficient = 3.3f;
     public float acceleration = 20.0f;
     public float maxSpeed = 3.5f;
@@ -128,6 +135,7 @@ public class Player : MonoBehaviour {
 
     void UpdateMovement(float dt)
     {
+
         var movementVec = Vector3.zero;
 
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) movementVec += Vector3.up;
@@ -142,8 +150,11 @@ public class Player : MonoBehaviour {
             lookDir = movementVec;
         }
 
+        
+        Debug.DrawLine(transform.position, transform.position + lookDir, Color.blue);
+        Debug.DrawLine(transform.position, transform.position + transform.up, Color.green);
 
-        if(movementVec == Vector3.zero)
+        if (movementVec == Vector3.zero)
         {
             rigid.velocity = Vector2.Lerp(rigid.velocity, Vector2.zero, slowCoeficient * dt);
         }
@@ -153,7 +164,7 @@ public class Player : MonoBehaviour {
         }
 
         // limit speed
-        if(rigid.velocity.magnitude > maxSpeed)
+        if(rigid.velocity.magnitude >= maxSpeed)
         {
             rigid.velocity = rigid.velocity.normalized * maxSpeed;
         }

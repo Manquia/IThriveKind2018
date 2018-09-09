@@ -1611,6 +1611,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1526984789963808
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4788572332005146}
+  - component: {fileID: 114885355251981696}
+  - component: {fileID: 114424817436730462}
+  m_Layer: 0
+  m_Name: TrashSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1529192766959306
 GameObject:
   m_ObjectHideFlags: 1
@@ -5149,6 +5166,7 @@ Transform:
   - {fileID: 4281642870227996}
   - {fileID: 4532786960329522}
   - {fileID: 4409112663361004}
+  - {fileID: 4788572332005146}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5247,6 +5265,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4263619592214618}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4788572332005146
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1526984789963808}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -19.062504, y: 14.742061, z: -0.05859375}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_Children: []
+  m_Father: {fileID: 4762967469008770}
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4790372949463590
 Transform:
@@ -5920,6 +5951,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086c86ca6dc781e42997b2a8da7df83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  advanced:
+    LevelToLoadOnUseComplete: 
   conditions: []
   QueryPM:
     font: {fileID: 12800000, guid: 5e84e62442266844e89a26793c06cc71, type: 3}
@@ -5935,7 +5968,6 @@ MonoBehaviour:
   effects: []
   moneyCost: 0
   timeToComplete: 4.5
-  timeRemaining: 0
   oneTimeUse: 0
 --- !u!114 &114087923884118096
 MonoBehaviour:
@@ -5948,6 +5980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34c973d364d0d7f4fbcc4ae707d5ea90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inEditorDrawGizmos: 1
   InterpolationType: 0
   Circuit: 1
   DynamicPath: 0
@@ -5975,6 +6008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34c973d364d0d7f4fbcc4ae707d5ea90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inEditorDrawGizmos: 1
   InterpolationType: 1
   Circuit: 1
   DynamicPath: 0
@@ -6022,6 +6056,24 @@ MonoBehaviour:
     type: 2}
   PathEdgePrefab: {fileID: 4575854108348370, guid: e578b6d881bd20043a7fdba1c181d7db,
     type: 2}
+--- !u!114 &114424817436730462
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1526984789963808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b02f96110f2548a49b3213b13facde98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectsToSpawn:
+  - {fileID: 4182531403925516, guid: aa6a2773c34f83648a91233490b81b8e, type: 2}
+  - {fileID: 4241756849697302, guid: a38bb695c05953d49aff76b7648ac8e4, type: 2}
+  - {fileID: 4244250742820320, guid: d520e2e32293ee242b7c16535ccaf4bc, type: 2}
+  - {fileID: 4969142550950344, guid: 76f4cbed257a43b4e99249eb998ace90, type: 2}
+  pointsToUse: {fileID: 114885355251981696}
+  duplicateCount: 4
 --- !u!114 &114449900686213158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6037,6 +6089,68 @@ MonoBehaviour:
     type: 2}
   PathEdgePrefab: {fileID: 4575854108348370, guid: e578b6d881bd20043a7fdba1c181d7db,
     type: 2}
+--- !u!114 &114885355251981696
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1526984789963808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c973d364d0d7f4fbcc4ae707d5ea90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inEditorDrawGizmos: 0
+  InterpolationType: 0
+  Circuit: 0
+  DynamicPath: 0
+  SmoothBetweenPoints: 0
+  ModifyAndDraw: 0
+  points:
+  - {x: -7.67, y: 1.1299999, z: 0}
+  - {x: -1.9400003, y: 3.4199998, z: 0}
+  - {x: 8.52, y: 3.45, z: 0}
+  - {x: 6.58, y: 0.5, z: 0}
+  - {x: 6.62, y: 0.059999943, z: 0}
+  - {x: -1.5800002, y: -9.23, z: 0}
+  - {x: 8.48, y: -9.31, z: 0}
+  - {x: 11.51, y: 0.46000004, z: 0}
+  - {x: 11.43, y: -9.31, z: 0}
+  - {x: 8.32, y: -12.26, z: 0}
+  - {x: -1.5699999, y: -12.5, z: 0}
+  - {x: -4.7200003, y: -9.23, z: 0}
+  - {x: -4.6400003, y: 0.42000008, z: 0}
+  - {x: -4.76, y: -12.38, z: 0}
+  - {x: 4.29, y: 0.53999996, z: 0}
+  - {x: -1.3999999, y: 0.53999996, z: 0}
+  - {x: 4.01, y: -6.16, z: 0}
+  - {x: -4.2700005, y: 7.25, z: 0}
+  - {x: 11.16, y: 6, z: 0}
+  - {x: 13.91, y: 0.75, z: 0}
+  - {x: 13.51, y: -12.17, z: 0}
+  linearDistanceAlongPath:
+  - 0
+  - 6.170656
+  - 16.6307
+  - 20.161436
+  - 20.60325
+  - 32.99454
+  - 43.05486
+  - 53.283928
+  - 63.054256
+  - 67.34082
+  - 77.233734
+  - 81.774155
+  - 91.424484
+  - 104.225044
+  - 119.99936
+  - 125.68936
+  - 134.30087
+  - 150.06116
+  - 165.5417
+  - 171.46834
+  - 184.39453
+  - 209.40417
 --- !u!114 &114897971109110784
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6048,6 +6162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34c973d364d0d7f4fbcc4ae707d5ea90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inEditorDrawGizmos: 1
   InterpolationType: 0
   Circuit: 0
   DynamicPath: 0
