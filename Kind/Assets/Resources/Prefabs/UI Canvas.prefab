@@ -554,7 +554,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Sample Text Box
+  m_Text: 
 --- !u!114 &114283205096263968
 MonoBehaviour:
   m_ObjectHideFlags: 1
