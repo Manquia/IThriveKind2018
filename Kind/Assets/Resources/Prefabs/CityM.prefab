@@ -6678,6 +6678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086c86ca6dc781e42997b2a8da7df83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  conditions: []
   QueryPM:
     font: {fileID: 12800000, guid: 75d7d245bd9b63643b6f964087a1104f, type: 3}
     message: 'BUY SODA: $5'
@@ -6691,6 +6692,8 @@ MonoBehaviour:
   UseCompletePM:
     font: {fileID: 12800000, guid: 75d7d245bd9b63643b6f964087a1104f, type: 3}
     message: Enjoy Soda in mouth with flavors beyond your wildest dreams
+  effects:
+  - soda
   moneyCost: 5
   timeToComplete: 5.5
   timeRemaining: 0
@@ -6735,6 +6738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086c86ca6dc781e42997b2a8da7df83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  conditions: []
   QueryPM:
     font: {fileID: 12800000, guid: 75d7d245bd9b63643b6f964087a1104f, type: 3}
     message: 'BUY SODA: $5'
@@ -6748,6 +6752,8 @@ MonoBehaviour:
   UseCompletePM:
     font: {fileID: 12800000, guid: 75d7d245bd9b63643b6f964087a1104f, type: 3}
     message: Enjoy Soda in mouth with flavors beyond your wildest dreams
+  effects:
+  - soda
   moneyCost: 5
   timeToComplete: 5.5
   timeRemaining: 0

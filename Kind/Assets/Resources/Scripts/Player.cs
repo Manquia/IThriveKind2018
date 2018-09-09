@@ -130,10 +130,10 @@ public class Player : MonoBehaviour {
     {
         var movementVec = Vector3.zero;
 
-        if (Input.GetKey(KeyCode.W)) movementVec += Vector3.up;
-        if (Input.GetKey(KeyCode.S)) movementVec -= Vector3.up;
-        if (Input.GetKey(KeyCode.D)) movementVec += Vector3.right;
-        if (Input.GetKey(KeyCode.A)) movementVec -= Vector3.right;
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) movementVec += Vector3.up;
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) movementVec -= Vector3.up;
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) movementVec += Vector3.right;
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) movementVec -= Vector3.right;
 
         // normalize movement
         if (movementVec != Vector3.zero)
