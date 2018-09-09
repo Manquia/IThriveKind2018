@@ -5,7 +5,7 @@ using UnityEngine;
 
 public struct ActivateUsableObject
 {
-
+    public GameObject user;
 }
 public class UsableObject : MonoBehaviour
 {
@@ -73,12 +73,12 @@ public class UsableObject : MonoBehaviour
             FFMessageBoard<UseCompleted>.Send(uc, e.user);
 
             e.valid = false;
-            Complete();
+            Complete(e);
         }
         return 0;
     }
 
-    void Complete()
+    void Complete(Using e)
     {
         Debug.Log("Completed: " + gameObject.name + " Usable Object");
 
@@ -86,6 +86,7 @@ public class UsableObject : MonoBehaviour
         Static_Var.Money = Mathf.Max(0, Static_Var.Money);
 
         ActivateUsableObject auo;
+        auo.user = e.user;
         FFMessageBoard<ActivateUsableObject>.Send(auo, gameObject);
 
         foreach(var eff in effects)
