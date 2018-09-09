@@ -710,11 +710,6 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 82000257223239442, guid: edb7d13dfe02c4e47ab1569936c4e721,
-        type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: edb7d13dfe02c4e47ab1569936c4e721, type: 2}
   m_IsPrefabParent: 0
