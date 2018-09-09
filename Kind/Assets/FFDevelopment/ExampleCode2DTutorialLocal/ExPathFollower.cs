@@ -4,6 +4,7 @@ using System.Collections;
 public struct PathFollowerCompletedLoopEvent
 {
     public float distTraveled;
+    public GameObject obj;
 }
 
 public class ExPathFollower : FFComponent {
@@ -38,6 +39,7 @@ public class ExPathFollower : FFComponent {
                 loopCounter = (int)(distance % path.PathLength);
                 PathFollowerCompletedLoopEvent e;
                 e.distTraveled = path.PathLength;
+                e.obj = gameObject;
                 FFMessage<PathFollowerCompletedLoopEvent>.SendToLocal(e);
             }
         }
