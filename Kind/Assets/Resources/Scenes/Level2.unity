@@ -515,41 +515,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 914feded418fedd4396e9637b2e5b0e4, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1126942225 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1306838094338336, guid: 49ad037da62bdf749aa5772aaa6f983c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1795396491}
---- !u!114 &1126942226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1126942225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 086c86ca6dc781e42997b2a8da7df83c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  conditions: []
-  QueryPM:
-    font: {fileID: 12800000, guid: 5e84e62442266844e89a26793c06cc71, type: 3}
-    message: Enter Office?
-  inProgressPMs:
-  - font: {fileID: 12800000, guid: 5e84e62442266844e89a26793c06cc71, type: 3}
-    message: Entering Office
-  - font: {fileID: 12800000, guid: 9ddb1b0e6cfe4ed4ca1d2729993c83b5, type: 3}
-    message: See Gabe Newell
-  - font: {fileID: 12800000, guid: 234e1847081c674499c3d3224293953d, type: 3}
-    message: See Gabe Newell
-  UseCompletePM:
-    font: {fileID: 12800000, guid: 234e1847081c674499c3d3224293953d, type: 3}
-    message: ENTERED CUBICLE OF LIFE
-  effects: []
-  moneyCost: 0
-  timeToComplete: 4.5
-  timeRemaining: 0
-  oneTimeUse: 0
 --- !u!114 &1158883836 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114403846253747236, guid: 470dd8bf25471044d9ae9fa9e3bf8452,
@@ -614,7 +579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1400836320
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -35,7 +35,8 @@ public class Timer_behavior : FFComponent {
             this.gameObject.SetActive(false);
         }
         oneSecond = new WaitForSeconds(1f);
-        StartCoroutine(updateTimer());
+        if(gameObject.activeSelf)
+            StartCoroutine(updateTimer());
 
     }
 
@@ -89,7 +90,8 @@ public class Timer_behavior : FFComponent {
     {
         timertext.text = over_string;
         timertext.color = Color.red;
-        OnTimerEnd(this.gameObject.name);
+        if(OnTimerEnd != null)
+            OnTimerEnd(this.gameObject.name);
         childtext.gameObject.SetActive(false);
     }
 
