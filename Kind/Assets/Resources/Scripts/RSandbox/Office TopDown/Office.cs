@@ -61,7 +61,7 @@ public class Office : MonoBehaviour
 
     void Complete()
     {
-        Debug.Log("Enter Office");
+        FFMessage<TriggerFade>.SendToLocal(new TriggerFade());
     }
 
     private int OnUseBegin(UseBegin e)
@@ -79,13 +79,4 @@ public class Office : MonoBehaviour
 
         return 0;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-
-    }
-
-
 }
