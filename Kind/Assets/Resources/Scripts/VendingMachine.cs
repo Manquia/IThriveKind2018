@@ -6,7 +6,7 @@ using UnityEngine;
 public class VendingMachine : MonoBehaviour {
     
     public PlayerMessage QueryPM;
-    public PlayerMessage []UsingPM;
+    public PlayerMessage []inProgressPMs;
     public PlayerMessage UseCompletePM;
 
     public int moneyCost;
@@ -34,13 +34,13 @@ public class VendingMachine : MonoBehaviour {
         timeRemaining = Math.Max(timeRemaining, 0.0f);
 
         float mu = 1.0f - (timeRemaining / timeToComplete);
-        float muStep = 1.0f / UsingPM.Length;
+        float muStep = 1.0f / inProgressPMs.Length;
         //Debug.Log("mu:  " + mu);
 
-        int sampleIndex = (int)((mu + (0.5f * muStep)) * ((float)UsingPM.Length - 1.0f));
-        sampleIndex = Math.Min(sampleIndex, UsingPM.Length - 1);
+        int sampleIndex = (int)((mu + (0.5f * muStep)) * ((float)inProgressPMs.Length - 1.0f));
+        sampleIndex = Math.Min(sampleIndex, inProgressPMs.Length - 1);
 
-        var pmToUse = UsingPM[sampleIndex];
+        var pmToUse = inProgressPMs[sampleIndex];
 
         e.pm = pmToUse;
         e.timeRemaining = timeRemaining;
@@ -81,13 +81,4 @@ public class VendingMachine : MonoBehaviour {
             
         return 0;
     }
-
-    // Update is called once per frame
-    void Update ()
-    {
-
-		
-	}
-    
-
 }
