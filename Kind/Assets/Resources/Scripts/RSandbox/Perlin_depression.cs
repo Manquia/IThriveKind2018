@@ -23,6 +23,7 @@ public class Perlin_depression : MonoBehaviour
     private Color[] pix;
     private Renderer rend;
 
+    public float speed = 1.0f;
     //public Material perlin_2D_mat;
 
     void Start()
@@ -38,7 +39,7 @@ public class Perlin_depression : MonoBehaviour
     void CalcNoise()
     {
         // For each pixel in the texture...
-        float y = 0.0F;
+        float y = 0.9F;
 
         while (y < noiseTex.height)
         {
@@ -48,7 +49,7 @@ public class Perlin_depression : MonoBehaviour
                 float xCoord = xOrg + x / noiseTex.width * scale;
                 float yCoord = yOrg + y / noiseTex.height * scale;
                 float sample = Mathf.PerlinNoise(xCoord, yCoord);
-                pix[(int)y * noiseTex.width + (int)x] = new Color(sample, sample, sample);
+                pix[(int)y * noiseTex.width + (int)x] = new Color(sample, sample, sample, 0.4f);
                 x++;
             }
             y++;
@@ -62,5 +63,8 @@ public class Perlin_depression : MonoBehaviour
     void Update()
     {
         CalcNoise();
+
+        xOrg += speed * Time.deltaTime;
+        yOrg += speed * Time.deltaTime;
     }
 }
