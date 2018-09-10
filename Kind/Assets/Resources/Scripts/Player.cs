@@ -186,6 +186,12 @@ public class Player : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         DeselectUsableObject(collision.gameObject);
+
+        var uo = collision.gameObject.GetComponent<UsableObject>();
+        if (uo != null)
+        {
+            uo.timeRemaining = uo.timeToComplete;
+        }
     }
 
 
