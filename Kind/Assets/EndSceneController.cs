@@ -11,6 +11,10 @@ public class EndSceneController : MonoBehaviour {
 
     GameObject obj;
     GlobalEndGameHolder helpedpeople;
+
+    public float Ox;
+    public float Oy;
+    public float length;
 	// Use this for initialization
 	void Start () {
 		for(int i = 0; i < waitTime.Length; i++)
@@ -19,6 +23,7 @@ public class EndSceneController : MonoBehaviour {
         }
         obj = GameObject.Find("GlobalEndGameHolder");
         helpedpeople = GetComponent<GlobalEndGameHolder>();
+        StartCoroutine(endingScene());
     }
 	
     IEnumerator DisplayAndWait(string t, float f)
@@ -33,8 +38,8 @@ public class EndSceneController : MonoBehaviour {
 
         yield return DisplayAndWait("This is the end of your life", 3);
 
-        yield return DisplayAndWait("What have you done in your life ", 2);
-        yield return DisplayAndWait("Determines who you are.", 4);
+        yield return DisplayAndWait("What have you done in your life,", 2);
+        yield return DisplayAndWait("determines who you are.", 4);
 
         yield return DisplayAndWait("Hopefully it is a life well lived...",3);
 
@@ -46,7 +51,14 @@ public class EndSceneController : MonoBehaviour {
 
     IEnumerator ComeOutAndTalkAndFade(GameObject obj)
     {
-
-        yield return null;
+        for(int i = (int)Ox; i < length; i++)
+        {
+            for(int t = (int)Oy; t < length; t++)
+            {
+                obj.SetActive(true);
+                obj.transform.position = new Vector3(i, t, 0);
+                yield return new WaitForSeconds(0.5f);
+            }
+        }
     }
 }
