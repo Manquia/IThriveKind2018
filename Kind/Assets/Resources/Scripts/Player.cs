@@ -159,6 +159,11 @@ public class Player : MonoBehaviour
         {
             rigid.velocity = rigid.velocity.normalized * maxSpeed;
         }
+
+        if(Input.GetKey(KeyCode.P))
+        {
+            FFMessage<TriggerFade>.SendToLocal(new TriggerFade("EndScene"));
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

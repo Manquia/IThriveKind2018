@@ -15,6 +15,7 @@ public class UsableObject : MonoBehaviour
     {
         // uses the FadeTrigger event
         public string LevelToLoadOnUseComplete;
+        public bool ShowAtEnd;
     }
     public AdvancedData advanced;
 
@@ -105,6 +106,13 @@ public class UsableObject : MonoBehaviour
         }
 
         ++timesUsed;
+
+        if(advanced.ShowAtEnd)
+        {
+            HelpedYou help;
+            help.obj = this.gameObject;
+            FFMessage<HelpedYou>.SendToLocal(help);
+        }
 
 
         if(advanced.LevelToLoadOnUseComplete != "")
