@@ -11,6 +11,13 @@ struct UI_Text
 
     //0 is nothing, 1 is full, negative don't display 
     public float progress;
+
+    public UI_Text(string t, Font f, float p)
+    {
+        text = t;
+        font = f;
+        progress = p;
+    }
 }
 
 public class FFA_UI_Text : MonoBehaviour {

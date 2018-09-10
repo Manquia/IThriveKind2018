@@ -408,7 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c33a432ab69958c47b6a85ab6bb5632f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 15
+  maxTime: 20
   currentTime: 0
   timertext: {fileID: 114195706224648110}
   childtext: {fileID: 114650391704731804}
@@ -785,7 +785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c33a432ab69958c47b6a85ab6bb5632f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 40
+  maxTime: 90
   currentTime: 0
   timertext: {fileID: 114028655029016838}
   childtext: {fileID: 114912358604961048}

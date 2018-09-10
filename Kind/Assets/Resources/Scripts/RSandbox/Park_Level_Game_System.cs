@@ -41,6 +41,11 @@ public class Park_Level_Game_System : MonoBehaviour {
         else if (timerName.Contains("World Time"))
         {
             Static_Var.FogValue = Static_Var.FogValue + 0.3f;
+            UI_Text tx = new UI_Text { text = "SLEEP TIME...", font = font, progress = 0f };
+            FFMessage<UI_Text>.SendToLocal(tx);
+
+            string level = "Level" + Static_Var.currentLevel.ToString();
+            FFMessage<TriggerFade>.SendToLocal(new TriggerFade(level));
         }
     }
 
