@@ -154,6 +154,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd63dbd2eb896b846a6122ea9704db7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: []
+  waitTime: []
+  font: {fileID: 12800000, guid: 234e1847081c674499c3d3224293953d, type: 3}
+  Ox: 0
+  Oy: 0
+  length: 0
 --- !u!1 &721937479
 GameObject:
   m_ObjectHideFlags: 0

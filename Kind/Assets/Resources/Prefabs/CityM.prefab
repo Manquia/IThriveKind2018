@@ -7699,6 +7699,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   advanced:
     LevelToLoadOnUseComplete: 
+    ShowAtEnd: 1
   conditions: []
   QueryPM:
     font: {fileID: 12800000, guid: 5e84e62442266844e89a26793c06cc71, type: 3}
@@ -8029,6 +8030,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   advanced:
     LevelToLoadOnUseComplete: 
+    ShowAtEnd: 0
   conditions: []
   QueryPM:
     font: {fileID: 12800000, guid: 5e84e62442266844e89a26793c06cc71, type: 3}
